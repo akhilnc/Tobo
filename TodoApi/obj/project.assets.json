@@ -4397,11 +4397,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "e:\\netCore\\TodoApi\\TodoApi.csproj",
+      "projectUniqueName": "E:\\netCore\\GitWorkspace\\Tobo\\TodoApi\\TodoApi.csproj",
       "projectName": "TodoApi",
-      "projectPath": "e:\\netCore\\TodoApi\\TodoApi.csproj",
+      "projectPath": "E:\\netCore\\GitWorkspace\\Tobo\\TodoApi\\TodoApi.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "e:\\netCore\\TodoApi\\obj\\",
+      "outputPath": "E:\\netCore\\GitWorkspace\\Tobo\\TodoApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"

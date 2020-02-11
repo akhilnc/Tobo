@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\netCore\\TodoApi\\TodoApi.csproj": {}
+    "E:\\netCore\\GitWorkspace\\Tobo\\TodoApi\\TodoApi.csproj": {}
   },
   "projects": {
-    "E:\\netCore\\TodoApi\\TodoApi.csproj": {
+    "E:\\netCore\\GitWorkspace\\Tobo\\TodoApi\\TodoApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\netCore\\TodoApi\\TodoApi.csproj",
+        "projectUniqueName": "E:\\netCore\\GitWorkspace\\Tobo\\TodoApi\\TodoApi.csproj",
         "projectName": "TodoApi",
-        "projectPath": "E:\\netCore\\TodoApi\\TodoApi.csproj",
+        "projectPath": "E:\\netCore\\GitWorkspace\\Tobo\\TodoApi\\TodoApi.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "E:\\netCore\\TodoApi\\obj\\",
+        "outputPath": "E:\\netCore\\GitWorkspace\\Tobo\\TodoApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
