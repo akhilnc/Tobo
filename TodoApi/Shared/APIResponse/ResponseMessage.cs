@@ -13,8 +13,9 @@ namespace TodoApi.Shared.APIResponse
             { "no-result",""},
             { "application-success",""},
             { "application-failure",""},
+            {"USER_REGISTERD","Registerd Successfully"}
         };
-        public static string[] SuccessKeys = { "UPDATED", "", "APPROVED", "PROCESSED", "REVERT", "REJECTED", "CANCELLED", "CANCEL_APPROVED", "token-generated", "DELETED" };
+        public static string[] SuccessKeys = { "USER_REGISTERD","UPDATED", "", "APPROVED", "PROCESSED", "REVERT", "REJECTED", "CANCELLED", "CANCEL_APPROVED", "token-generated", "DELETED" };
         public static void Get(string key, out string response)
         {
             string lang;

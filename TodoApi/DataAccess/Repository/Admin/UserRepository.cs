@@ -1,9 +1,6 @@
-using System.Linq;
 using System.Threading.Tasks;
 using TodoApi.DataAccess.Abstract.Admin;
-using System.Data.SqlClient;
 using Dapper;
-using Microsoft.Extensions.Configuration;
 using TodoApi.DataAccess.Abstract.DBHelper;
 namespace TodoApi.DataAccess.Repository.Admin
 {
