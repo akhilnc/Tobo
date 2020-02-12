@@ -4,6 +4,8 @@ using TodoApi.Shared.Generics;
 using TodoApi.DataAccess.Abstract.DBHelper;
 using Dapper;
 using System.Data;
+using System;
+
 namespace TodoApi.DataAccess.Repository.Account
 {
     public class AuthRepository : IAuthRepository
@@ -19,9 +21,36 @@ namespace TodoApi.DataAccess.Repository.Account
             _dbConnectionFactory = dbConnectionFactory;
         }
         #endregion
-        public Task<User> Login(string userName, string password)
+        public async Task<User> Login(string userName, string password)
         {
-            throw new System.NotImplementedException();
+            var user = new User();
+            using (var conn = _dbConnectionFactory.CreateConnection())
+            {
+                var parameter = new DynamicParameters();
+                parameter.Add("@UserName", userName);
+                user = await conn.QueryFirstOrDefaultAsync<User>("SP_GET_USER", parameter, commandType: CommandType.StoredProcedure);
+
+            }
+            if (user == null)
+                return null;
+            if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
+                return null;
+            return user;
+        }
+
+        private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
+        {
+            using (var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
+            {
+                var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                for (int i = 0, len = computedHash.Length; i < len; i++)
+                {
+                    if (computedHash[i] != passwordHash[i])
+                        return false;
+                }
+
+            }
+            return true;
         }
 
         public async Task<string> Register(User user, string password)
@@ -36,9 +65,9 @@ namespace TodoApi.DataAccess.Repository.Account
                 parameter.Add("@PasswordHash", user.PasswordHash);
                 parameter.Add("@PasswordSalt", user.PasswordSalt);
                 parameter.Add("@UserName", user.UserName);
-                parameter.Add("@Result", dbType: DbType.String, direction: ParameterDirection.Output,size:30);
+                parameter.Add("@Result", dbType: DbType.String, direction: ParameterDirection.Output, size: 30);
                 await conn.ExecuteAsync("SP_USER_REG", parameter, commandType: CommandType.StoredProcedure);
-                return parameter.Get<string>("@Result");;
+                return parameter.Get<string>("@Result"); ;
             }
 
         }
